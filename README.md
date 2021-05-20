@@ -31,5 +31,8 @@ Full Features
     of the USB drive. Instead of seeing the actual 16GB,8GB,4GB or whatever the size of your
     USB drive is, you’ll see something like a couple hundred MBs available on it. 
     
-    This Project is based on Rufus https://rufus.ie/
+    
+        This Project is based on Rufus https://rufus.ie/
+    
+
     
