@@ -1,6 +1,6 @@
 ![formatusb](https://formatusb.com/assets/images/formatusb-type-c779b455f67949cce09dfad4a7f006f1.png)
 
-
+This Project is based on Rufus https://rufus.ie/
 The FormatUsb tool is a reliable way to format USB flash drives, such as USB keys/pendrives, memory sticks,SD Memory Card, SDHC Memory Card and SDXC Memory Card SD/SDHC/SDXC Cards 
 
 https://formatusb.com/download
@@ -32,7 +32,7 @@ Full Features
     USB drive is, you’ll see something like a couple hundred MBs available on it. 
     
     
-        This Project is based on Rufus https://rufus.ie/
+ 
     
 
     
