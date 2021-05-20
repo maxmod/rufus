@@ -1236,7 +1236,7 @@ msgstr "Brak pliku %s"
 #. • MSG_207
 #.
 #. The name proposed by Windows' Computer Management → Disk Management when you try to format
-#. a drive with an empty label. For an example, see https://rufus.ie/pics/default_name.png.
+#. a drive with an empty label. For an example, see https://formatusb.com/pics/default_name.png.
 msgid "New Volume"
 msgstr "Nowy wolumin"
 
@@ -1790,5 +1790,5 @@ msgid ""
 "The image you have selected is an ISOHybrid, but its creators have not made it compatible with ISO/File copy mode.\n"
 "As a result, DD image writing mode will be enforced."
 msgstr ""
-"Obraz, który został wybrany jest Hybrydą ISO i nie jest zgodny z trybem kopiowania ISO.\n"
+"Obraz, który został wybrany jes Hybrydą ISO i nie jest zgodny z trybem kopiowania ISO.\n"
 "Wynikiem tego będzie przymusowe zapisywanie w trybie DD."

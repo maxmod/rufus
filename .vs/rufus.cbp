@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="formatusb" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug Win32">
+				<Option output="../x86/Debug/formatusb" prefix_auto="1" extension_auto="1" />
+				<Option object_output="../x86/Debug/formatusb/" />
+				<Option deps_output="../x86/Debug/" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+					<Add option="-DSOLUTION=$(SolutionName)" />
+					<Add option="-D_OFF_T_DEFINED" />
+					<Add option="-D_off_t=__int64" />
+					<Add option="-Doff_t=_off_t" />
+					<Add option="-DCOBJMACROS" />
+					<Add option="-D_CRTDBG_MAP_ALLOC" />
+					<Add option="-O0" />
+					<Add option="-Wall" />
+					<Add option="-D_UNICODE" />
+					<Add option="-DUNICODE" />
+					<Add option="-DRUFUS_LOC" />
+					<Add directory="../src/" />
+					<Add directory="../src/msvc-missing/" />
+					<Add directory="../src/ms-sys/inc/" />
+					<Add directory="../src/syslinux/libinstaller/" />
+					<Add directory="../src/syslinux/libfat/" />
+					<Add directory="../src/syslinux/win/" />
+					<Add directory="../src/libcdio/" />
+					<Add directory="../src/getopt/" />
+				</Compiler>
+				<Linker>
+					<Add library="advapi32.lib" />
+					<Add library="comctl32.lib" />
+					<Add library="comdlg32.lib" />
+					<Add library="crypt32.lib" />
+					<Add library="gdi32.lib" />
+					<Add library="ole32.lib" />
+					<Add library="setupapi.lib" />
+					<Add library="shell32.lib" />
+					<Add library="shlwapi.lib" />
+					<Add library="wintrust.lib" />
+					<Add library="psapi.lib" />
+					<Add library="winmm.lib" />
+					<Add library="kernel32.lib" />
+					<Add library="user32.lib" />
+					<Add library="winspool.lib" />
+					<Add library="oleaut32.lib" />
+					<Add library="uuid.lib" />
+					<Add library="odbc32.lib" />
+					<Add library="odbccp32.lib" />
+				</Linker>
+			</Target>
+			<Target title="Release Win32">
+				<Option output="../x86/Release/formatusb" prefix_auto="1" extension_auto="1" />
+				<Option object_output="../x86/Release/formatusb/" />
+				<Option deps_output="../x86/Release/" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-DSOLUTION=$(SolutionName)" />
+					<Add option="-D_OFF_T_DEFINED" />
+					<Add option="-D_off_t=__int64" />
+					<Add option="-Doff_t=_off_t" />
+					<Add option="-DCOBJMACROS" />
+					<Add option="-Os" />
+					<Add option="-Wall" />
+					<Add option="-D_UNICODE" />
+					<Add option="-DUNICODE" />
+					<Add option="-DRUFUS_LOC" />
+					<Add directory="../src/" />
+					<Add directory="../src/msvc-missing/" />
+					<Add directory="../src/ms-sys/inc/" />
+					<Add directory="../src/syslinux/libinstaller/" />
+					<Add directory="../src/syslinux/libfat/" />
+					<Add directory="../src/syslinux/win/" />
+					<Add directory="../src/libcdio/" />
+					<Add directory="../src/getopt/" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add library="advapi32.lib" />
+					<Add library="comctl32.lib" />
+					<Add library="comdlg32.lib" />
+					<Add library="crypt32.lib" />
+					<Add library="gdi32.lib" />
+					<Add library="ole32.lib" />
+					<Add library="setupapi.lib" />
+					<Add library="shell32.lib" />
+					<Add library="shlwapi.lib" />
+					<Add library="wintrust.lib" />
+					<Add library="psapi.lib" />
+					<Add library="winmm.lib" />
+					<Add library="kernel32.lib" />
+					<Add library="user32.lib" />
+					<Add library="winspool.lib" />
+					<Add library="oleaut32.lib" />
+					<Add library="uuid.lib" />
+					<Add library="odbc32.lib" />
+					<Add library="odbccp32.lib" />
+				</Linker>
+			</Target>
+		</Build>
+		<Unit filename="../res/down.ico" />
+		<Unit filename="../res/rufus.ico" />
+		<Unit filename="../res/up.ico" />
+		<Unit filename="../src/badblocks.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../src/badblocks.h" />
+		<Unit filename="../src/bled/bled.h" />
+		<Unit filename="../src/checksum.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../src/db.h" />
+		<Unit filename="../src/dev.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../src/dev.h" />
+		<Unit filename="../src/dos.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../src/dos.h" />
+		<Unit filename="../src/dos_locale.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../src/drive.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../src/drive.h" />
+		<Unit filename="../src/format.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../src/format.h" />
+		<Unit filename="../src/format_ext.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../src/format_fat32.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../src/gpt_types.h" />
+		<Unit filename="../src/hdd_vs_ufd.h" />
+		<Unit filename="../src/icon.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../src/iso.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../src/libcdio/cdio/cdio.h" />
+		<Unit filename="../src/libcdio/cdio/iso9660.h" />
+		<Unit filename="../src/libcdio/cdio/udf.h" />
+		<Unit filename="../src/license.h" />
+		<Unit filename="../src/localization.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../src/localization.h" />
+		<Unit filename="../src/localization_data.h" />
+		<Unit filename="../src/mbr_types.h" />
+		<Unit filename="../src/missing.h" />
+		<Unit filename="../src/msapi_utf8.h" />
+		<Unit filename="../src/net.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../src/parser.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../src/pki.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../src/process.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../src/process.h" />
+		<Unit filename="../src/re.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../src/re.h" />
+		<Unit filename="../src/registry.h" />
+		<Unit filename="../src/resource.h" />
+		<Unit filename="../src/rufus.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../src/rufus.h" />
+		<Unit filename="../src/rufus.rc">
+			<Option compilerVar="WINDRES" />
+		</Unit>
+		<Unit filename="../src/settings.h" />
+		<Unit filename="../src/smart.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../src/smart.h" />
+		<Unit filename="../src/stdfn.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../src/stdio.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../src/stdlg.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../src/syslinux.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../src/ui.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../src/ui.h" />
+		<Unit filename="../src/ui_data.h" />
+		<Unit filename="../src/vhd.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../src/winio.h" />
+		<Extensions />
+	</Project>
+</CodeBlocks_project_file>

@@ -28,17 +28,12 @@ RUFUS_URL "\\line\n"
 "\\fs18%s\\line\n"
 "\\line\n"
 "%s\\line\n"
-"https://github.com/pbatard/rufus/issues\\line\n"
 "\\line\n"
 "\\b\\fs19 %s\\b0}";
 
 const char* additional_copyrights =
 "{\\rtf1\\ansi\n"
-"UI redesign concept by Fahad Al-Riyami\\line\n"
-"Used with kind authorization\\line\n"
-"\\line\n"
-"Rufus icon by PC Unleashed:\\line\n"
-"Freeware\\line\n"
+
 "\\line\n"
 "Additional icons courtesy of Axialis Software:\\line\n"
 "https://axialis.com/\\line\n"

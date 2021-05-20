@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="syslinux-libfat" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Release Win32">
+				<Option output="../x86/Release/syslinux-libfat" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="../x86/Release/syslinux-libfat/" />
+				<Option deps_output="../x86/Release/" />
+				<Option type="2" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Compiler>
+					<Add option="-Dinline=__inline" />
+					<Add option="-Wall" />
+					<Add directory="../src/" />
+					<Add directory="../src/msvc-missing/" />
+				</Compiler>
+			</Target>
+		</Build>
+		<Unit filename="../src/syslinux/libfat/cache.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../src/syslinux/libfat/dumpdir.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../src/syslinux/libfat/fat.h" />
+		<Unit filename="../src/syslinux/libfat/fatchain.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../src/syslinux/libfat/libfat.h" />
+		<Unit filename="../src/syslinux/libfat/libfatint.h" />
+		<Unit filename="../src/syslinux/libfat/open.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../src/syslinux/libfat/searchdir.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../src/syslinux/libfat/ulint.h" />
+		<Extensions>
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

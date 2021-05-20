@@ -34,7 +34,7 @@
  */
 //#define RUFUS_TEST
 
-#define APPLICATION_NAME            "Rufus"
+#define APPLICATION_NAME            "FormatUsb"
 #if defined(_M_AMD64)
 #define APPLICATION_ARCH            "x64"
 #elif defined(_M_IX86)
@@ -46,7 +46,7 @@
 #else
 #define APPLICATION_ARCH            "(Unknown Arch)"
 #endif
-#define COMPANY_NAME                "Akeo Consulting"
+#define COMPANY_NAME                "FormatUsb"
 #define STR_NO_LABEL                "NO_LABEL"
 // Yes, there exist characters between these seemingly empty quotes!
 #define LEFT_TO_RIGHT_MARK          "‎"
@@ -111,7 +111,7 @@
 #if defined(RUFUS_TEST)
 #define RUFUS_URL                   "http://nano/~rufus"
 #else
-#define RUFUS_URL                   "https://rufus.ie"
+#define RUFUS_URL                   "https://formatusb.com"
 #endif
 #define DOWNLOAD_URL                RUFUS_URL "/downloads"
 #define FILES_URL                   RUFUS_URL "/files"

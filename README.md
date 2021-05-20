@@ -49,7 +49,7 @@ Additional information
 Rufus provides extensive information about what it is doing, either through its
 easily accessible log, or through the [Windows debug facility](https://docs.microsoft.com/en-us/sysinternals/downloads/debugview).
 
-* [__Official Website__](https://rufus.ie)
+* [__Official Website__](https://formatusb.com)
 * [FAQ](https://github.com/pbatard/rufus/wiki/FAQ)
 
 Enhancements/Bugs

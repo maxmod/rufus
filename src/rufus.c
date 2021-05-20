@@ -125,7 +125,7 @@ BOOL zero_drive = FALSE, list_non_usb_removable_drives = FALSE, enable_file_inde
 BOOL write_as_image = FALSE, write_as_esp = FALSE, installed_uefi_ntfs = FALSE, use_vds = FALSE, ignore_boot_marker = FALSE;
 BOOL windows_to_go_selected = FALSE, appstore_version = FALSE;
 float fScale = 1.0f;
-int dialog_showing = 0, selection_default = BT_IMAGE, persistence_unit_selection = -1;
+int dialog_showing = 0, selection_default = BT_NON_BOOTABLE, persistence_unit_selection = -1;
 int default_fs, fs_type, boot_type, partition_type, target_type; // file system, boot type, partition type, target type
 int force_update = 0, default_thread_priority = THREAD_PRIORITY_ABOVE_NORMAL;
 char szFolderPath[MAX_PATH], app_dir[MAX_PATH], system_dir[MAX_PATH], temp_dir[MAX_PATH], sysnative_dir[MAX_PATH];
@@ -1890,7 +1890,7 @@ static void InitDialog(HWND hDlg)
 	StrArrayCreate(&ImageList, 16);
 	// Set various checkboxes
 	CheckDlgButton(hDlg, IDC_QUICK_FORMAT, BST_CHECKED);
-	CheckDlgButton(hDlg, IDC_EXTENDED_LABEL, BST_CHECKED);
+	CheckDlgButton(hDlg, IDC_EXTENDED_LABEL, BST_UNCHECKED);
 
 	CreateAdditionalControls(hDlg);
 	SetSectionHeaders(hDlg);
@@ -1950,60 +1950,7 @@ static void PrintStatusTimeout(const char* str, BOOL val)
 	PrintStatus(STATUS_MSG_TIMEOUT, (val)?MSG_250:MSG_251, str);
 }
 
-static void SaveVHD(void)
-{
-	static IMG_SAVE img_save = { 0 };
-	char filename[128];
-	char path[MAX_PATH];
-	int DriveIndex = ComboBox_GetCurSel(hDeviceList);
-	EXT_DECL(img_ext, filename, __VA_GROUP__("*.vhd"), __VA_GROUP__(lmprintf(MSG_095)));
-	ULARGE_INTEGER free_space;
 
-	if ((DriveIndex < 0) || (format_thread != NULL))
-		return;
-
-	static_sprintf(filename, "%s.vhd", DriveLabel.String[DriveIndex]);
-	img_save.Type = IMG_SAVE_TYPE_VHD;
-	img_save.DeviceNum = (DWORD)ComboBox_GetItemData(hDeviceList, DriveIndex);
-	img_save.ImagePath = FileDialog(TRUE, NULL, &img_ext, 0);
-	img_save.BufSize = DD_BUFFER_SIZE;
-	img_save.DeviceSize = SelectedDrive.DiskSize;
-	if (img_save.ImagePath != NULL) {
-		// Reset all progress bars
-		SendMessage(hMainDialog, UM_PROGRESS_INIT, 0, 0);
-		FormatStatus = 0;
-		free_space.QuadPart = 0;
-		if ((GetVolumePathNameA(img_save.ImagePath, path, sizeof(path)))
-			&& (GetDiskFreeSpaceExA(path, &free_space, NULL, NULL))
-			&& ((LONGLONG)free_space.QuadPart > (SelectedDrive.DiskSize + 512))) {
-			// Disable all controls except cancel
-			EnableControls(FALSE, FALSE);
-			FormatStatus = 0;
-			InitProgress(TRUE);
-			format_thread = CreateThread(NULL, 0, SaveImageThread, &img_save, 0, NULL);
-			if (format_thread != NULL) {
-				uprintf("\r\nSave to VHD operation started");
-				PrintInfo(0, -1);
-				SendMessage(hMainDialog, UM_TIMER_START, 0, 0);
-			} else {
-				uprintf("Unable to start VHD save thread");
-				FormatStatus = ERROR_SEVERITY_ERROR | FAC(FACILITY_STORAGE) | APPERR(ERROR_CANT_START_THREAD);
-				safe_free(img_save.ImagePath);
-				PostMessage(hMainDialog, UM_FORMAT_COMPLETED, (WPARAM)FALSE, 0);
-			}
-		} else {
-			if (free_space.QuadPart == 0) {
-				uprintf("Unable to isolate drive name for VHD save");
-				FormatStatus = ERROR_SEVERITY_ERROR | FAC(FACILITY_STORAGE) | ERROR_PATH_NOT_FOUND;
-			} else {
-				uprintf("The VHD size is too large for the target drive");
-				FormatStatus = ERROR_SEVERITY_ERROR | FAC(FACILITY_STORAGE) | ERROR_FILE_TOO_LARGE;
-			}
-			safe_free(img_save.ImagePath);
-			PostMessage(hMainDialog, UM_FORMAT_COMPLETED, (WPARAM)FALSE, 0);
-		}
-	}
-}
 
 static void SaveISO(void)
 {
@@ -2561,7 +2508,7 @@ static INT_PTR CALLBACK MainCallback(HWND hDlg, UINT message, WPARAM wParam, LPA
 			}
 			break;
 		case IDC_SAVE:
-			SaveVHD();
+			
 			break;
 		case IDM_SELECT:
 		case IDM_DOWNLOAD:
@@ -2971,6 +2918,7 @@ static INT_PTR CALLBACK MainCallback(HWND hDlg, UINT message, WPARAM wParam, LPA
 			SendMessage(hProgress, PBM_SETPOS, MAX_PROGRESS, 0);
 			SetTaskbarProgressState(TASKBAR_NOPROGRESS);
 			PrintInfo(0, MSG_210);
+			
 			MessageBeep(MB_OK);
 			FlashTaskbar(dialog_handle);
 			if (installed_uefi_ntfs && (!ReadSettingBool(SETTING_DISABLE_SECURE_BOOT_NOTICE))) {
@@ -3332,7 +3280,7 @@ skip_args_processing:
 		uprintf("AppStore version detected");
 
 	// Look for a .ini file in the current app directory
-	static_sprintf(ini_path, "%s\\rufus.ini", app_dir);
+	static_sprintf(ini_path, "%s\\formatusb.ini", app_dir);
 	fd = fopenU(ini_path, ini_flags);	// Will create the file if portable mode is requested
 	// Using the string directly in safe_strcmp() would call GetSignatureName() twice
 	tmp = GetSignatureName(NULL, NULL);
@@ -3351,8 +3299,8 @@ skip_args_processing:
 	}
 
 	// Restore user-saved settings
-	advanced_mode_device = ReadSettingBool(SETTING_ADVANCED_MODE_DEVICE);
-	advanced_mode_format = ReadSettingBool(SETTING_ADVANCED_MODE_FORMAT);
+	advanced_mode_device = 1;
+	advanced_mode_format = 1;
 	preserve_timestamps = ReadSettingBool(SETTING_PRESERVE_TIMESTAMPS);
 	use_fake_units = !ReadSettingBool(SETTING_USE_PROPER_SIZE_UNITS);
 	use_vds = ReadSettingBool(SETTING_USE_VDS);

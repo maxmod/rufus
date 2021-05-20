@@ -100,6 +100,7 @@
 #define IDC_STATUS                      1006
 #define IDC_LABEL                       1007
 #define IDC_QUICK_FORMAT                1008
+#define IDC_QUICK_FORMATz               1008
 #define IDC_BAD_BLOCKS                  1009
 #define IDC_PROGRESS                    1010
 #define IDC_BOOT_SELECTION              1011
@@ -108,6 +109,7 @@
 #define IDC_SELECT                      1014
 #define IDC_EXTENDED_LABEL              1015
 #define IDC_RUFUS_MBR                   1016
+#define IDC_SELECT2                     1016
 #define IDC_TARGET_SYSTEM               1017
 #define IDC_PERSISTENCE_SIZE            1018
 #define IDC_PERSISTENCE_UNITS           1019
@@ -156,7 +158,6 @@
 #define IDC_MD5                         1071
 #define IDC_SHA1                        1072
 #define IDC_SHA256                      1073
-#define IDC_SHA512                      1112
 #define IDC_SELECTION_ICON              1074
 #define IDC_SELECTION_TEXT              1075
 #define IDC_SELECTION_LINE              1076
@@ -195,6 +196,7 @@
 #define IDC_LIST_ITEM14                 1109
 #define IDC_LIST_ITEM15                 1110
 #define IDC_LIST_ITEMMAX                1111
+#define IDC_SHA512                      1112
 #define IDS_DEVICE_TXT                  2000
 #define IDS_PARTITION_TYPE_TXT          2001
 #define IDS_FILE_SYSTEM_TXT             2002

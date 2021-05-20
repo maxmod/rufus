@@ -33,7 +33,7 @@
 #define PROGRESS_BAR_ERROR_COLOR			RGB(0xDA, 0x26, 0x26)
 
 // Toolbar icons main color
-#define TOOLBAR_ICON_COLOR					RGB(0x29, 0x80, 0xB9)
+#define TOOLBAR_ICON_COLOR					RGB(0xDA, 0x26, 0x26)
 
 // Toolbar default style
 #define TOOLBAR_STYLE						( WS_CHILD | WS_TABSTOP | WS_VISIBLE | \

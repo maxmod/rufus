@@ -399,18 +399,7 @@ void PositionMainControls(HWND hDlg)
 		SetWindowPos(hCtrl, hPrevCtrl, x, rc.top, bw, ddbh, 0);
 	}
 
-	// Reposition the Save button
-	hCtrl = GetDlgItem(hDlg, IDC_SAVE);
-	GetWindowRect(hCtrl, &rc);
-	MapWindowPoints(NULL, hDlg, (POINT*)&rc, 2);
-	SendMessage(hSaveToolbar, TB_GETIDEALSIZE, (WPARAM)FALSE, (LPARAM)&sz);
-	SendMessage(hSaveToolbar, TB_SETBUTTONSIZE, 0, MAKELPARAM(sz.cx, ddbh));
-	// Microsoft, how I loathe thee!!!
-	padding = (DWORD)SendMessage(hSaveToolbar, TB_GETPADDING, 0, 0);
-	sz.cx = padding & 0xFFFF;
-	sz.cy = padding >> 16;
-	SendMessage(hSaveToolbar, TB_SETPADDING, 0, MAKELPARAM(sz.cx + 3, sz.cy + 2));
-	SetWindowPos(hSaveToolbar, hDeviceList, mw + fw - sbw, rc.top, sbw, ddbh, 0);
+
 
 	// Reposition the Hash button
 	hCtrl = GetDlgItem(hDlg, IDC_HASH);
@@ -1018,8 +1007,8 @@ static INT_PTR CALLBACK ProgressCallback(HWND hCtrl, UINT message, WPARAM wParam
 
 void CreateAdditionalControls(HWND hDlg)
 {
-	int buttons_list[] = { IDC_LANG, IDC_ABOUT, IDC_SETTINGS, IDC_LOG };
-	int bitmaps_list[] = { 0, 1, 2, 3 };
+	int buttons_list[] = { IDC_ABOUT };
+	int bitmaps_list[] = { 1 };
 	HINSTANCE hDll;
 	HIMAGELIST hToolbarImageList;
 	HICON hIcon, hIconUp, hIconDown;

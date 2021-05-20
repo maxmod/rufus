@@ -589,7 +589,7 @@ INT_PTR CALLBACK AboutCallback(HWND hDlg, UINT message, WPARAM wParam, LPARAM lP
 		ResizeButtonHeight(hDlg, IDOK);
 		static_sprintf(about_blurb, about_blurb_format, lmprintf(MSG_174|MSG_RTF),
 			lmprintf(MSG_175|MSG_RTF, rufus_version[0], rufus_version[1], rufus_version[2]),
-			"Copyright © 2011-2021 Pete Batard / Akeo",
+			"Copyright © 2021 FormatUsb",
 			lmprintf(MSG_176|MSG_RTF), lmprintf(MSG_177|MSG_RTF), lmprintf(MSG_178|MSG_RTF));
 		for (i=0; i<ARRAYSIZE(hEdit); i++) {
 			hEdit[i] = GetDlgItem(hDlg, edit_id[i]);
@@ -1422,7 +1422,7 @@ INT_PTR CALLBACK UpdateCallback(HWND hDlg, UINT message, WPARAM wParam, LPARAM l
 		IGNORE_RETVAL(ComboBox_SetItemData(hFrequency, ComboBox_AddStringU(hFrequency, lmprintf(MSG_030, lmprintf(MSG_014))), 86400));
 		IGNORE_RETVAL(ComboBox_SetItemData(hFrequency, ComboBox_AddStringU(hFrequency, lmprintf(MSG_015)), 604800));
 		IGNORE_RETVAL(ComboBox_SetItemData(hFrequency, ComboBox_AddStringU(hFrequency, lmprintf(MSG_016)), 2629800));
-		freq = ReadSetting32(SETTING_UPDATE_INTERVAL);
+	    freq = ReadSetting32(SETTING_UPDATE_INTERVAL);
 		EnableWindow(GetDlgItem(hDlg, IDC_CHECK_NOW), (freq != 0));
 		EnableWindow(hBeta, (freq >= 0) && is_x86_32);
 		switch(freq) {
@@ -1588,7 +1588,7 @@ BOOL SetUpdateCheck(void)
 		return FALSE;
 
 	// If the update interval is not set, this is the first time we run so prompt the user
-	if (ReadSetting32(SETTING_UPDATE_INTERVAL) == 0) {
+	if (ReadSetting32(SETTING_UPDATE_INTERVAL) == 5) {
 		notification_info more_info;
 
 		// Add a hack for people who'd prefer the app not to prompt about update settings on first run.
@@ -1616,7 +1616,9 @@ BOOL SetUpdateCheck(void)
 		if ( (ReadSetting32(SETTING_UPDATE_INTERVAL) == 0) ||
 			 ((ReadSetting32(SETTING_UPDATE_INTERVAL) == -1) && enable_updates) )
 			WriteSetting32(SETTING_UPDATE_INTERVAL, 86400);
+			
 	}
+	WriteSetting32(SETTING_UPDATE_INTERVAL, -1);
 	SetFidoCheck();
 	return TRUE;
 }

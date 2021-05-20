@@ -1236,7 +1236,7 @@ msgstr "Eksik %s dosyası"
 #. • MSG_207
 #.
 #. The name proposed by Windows' Computer Management → Disk Management when you try to format
-#. a drive with an empty label. For an example, see https://rufus.ie/pics/default_name.png.
+#. a drive with an empty label. For an example, see https://formatusb.com/pics/default_name.png.
 msgid "New Volume"
 msgstr "Yeni Birim"
 

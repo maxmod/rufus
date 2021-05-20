@@ -938,7 +938,7 @@ namespace pollock
             Console.WriteLine();
 
             string loc_url = "https://github.com/pbatard/rufus/raw/master/res/loc/rufus.loc";
-            string ver_url = "https://rufus.ie/Loc.ver";
+            string ver_url = "https://formatusb.com/Loc.ver";
             string rufus_url = null;
             string rufus_file = null;
             string download_url = null;
